@@ -1,6 +1,7 @@
 export default function recipeReducer(
   state = {
     recipes: [],
+    loading: false,
   },
   action
 ) {
@@ -9,14 +10,14 @@ export default function recipeReducer(
       return {
         ...state,
         recipes: [...state.recipes],
-        requesting: true,
+        loading: true,
       };
 
     case "ADD_RECIPES":
       return {
         ...state,
         astronauts: action.recipes,
-        requesting: false,
+        loading: false,
       };
     default:
       return state;
