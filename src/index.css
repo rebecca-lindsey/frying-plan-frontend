@@ -17,8 +17,16 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Merienda One', cursive;
+}
+
+h2 {
+  padding-bottom: 10px
+}
+
+.main-containers  {
+  padding-top: 20px;
 }
 
 #app-container {
