@@ -14,6 +14,11 @@ Dark Gray: 262A2D */
 body {
   background-color: #edf4f4;
   color: #262A2D;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+  font-family: 'Merienda One', cursive;
 }
 
 #app-container {
