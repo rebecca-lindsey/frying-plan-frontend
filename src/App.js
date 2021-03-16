@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
+import RecipeContainer from "./recipes/recipeContainer";
 
 export default class App extends Component {
   render() {
@@ -17,7 +18,7 @@ export default class App extends Component {
               <h1>New Recipe Component Here</h1>
             </Route>
             <Route path="/recipes">
-              <h1>Recipes Component Here</h1>
+              <RecipeContainer />
             </Route>
             <Route path="/">
               <HomeContainer />

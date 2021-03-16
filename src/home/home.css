@@ -1,15 +1,3 @@
-#home-container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#home-container h2{
-    text-align: center;
-}
-
 #home-image {
    width: 512px;
    height: 342px;
