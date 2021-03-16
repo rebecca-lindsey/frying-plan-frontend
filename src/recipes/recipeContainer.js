@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchRecipes } from "../actions/fetchRecipes";
 import RecipeList from "./RecipeList";
+import "./recipe.css";
 
 class RecipeContainer extends Component {
   componentDidMount() {
@@ -9,7 +10,6 @@ class RecipeContainer extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div id="recipe-container" className="main-container">
         <h2>All Recipes</h2>
