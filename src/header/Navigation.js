@@ -17,7 +17,7 @@ export default class Navigation extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/recipes" activeClassName="active">
+            <NavLink exact to="/recipes" activeClassName="active">
               All Recipes
             </NavLink>
           </li>
