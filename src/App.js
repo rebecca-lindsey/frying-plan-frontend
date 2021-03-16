@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
-import RecipeContainer from "./recipes/recipeContainer";
+import RecipeContainer from "./recipes/RecipeContainer";
 
 export default class App extends Component {
   render() {
