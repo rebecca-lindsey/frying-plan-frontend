@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderContainer from "./header/HeaderContainer";
+import HomeContainer from "./home/HomeContainer";
 
 export default class App extends Component {
   render() {
@@ -19,7 +20,7 @@ export default class App extends Component {
               <h1>Recipes Component Here</h1>
             </Route>
             <Route path="/">
-              <h1>Welcome Page</h1>
+              <HomeContainer />
             </Route>
           </Switch>
         </div>
