@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import "./home.css";
-// import homeImage from "../../public/home-image.jpg";
 import homeImage from "./home-image.jpg";
 
 export default class HomeContainer extends Component {
   render() {
     return (
-      <div id="home-container" className="main-containers">
+      <div id="home-container" className="main-container">
         <h2>Welcome to Frying Plan!</h2>
         <p>
           Frying Plan is a meal planning app designed to make the weekly chore a
