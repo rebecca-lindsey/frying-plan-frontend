@@ -7,16 +7,24 @@ export default class Navigation extends Component {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink exact to="/" activeClassName="active">
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/users/1/days`}>Meal Plan</NavLink>
+            <NavLink to={`/users/1/days`} activeClassName="active">
+              Meal Plan
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/recipes">All Recipes</NavLink>
+            <NavLink to="/recipes" activeClassName="active">
+              All Recipes
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/recipes/new">New Recipe</NavLink>
+            <NavLink to="/recipes/new" activeClassName="active">
+              New Recipe
+            </NavLink>
           </li>
         </ul>
       </nav>
