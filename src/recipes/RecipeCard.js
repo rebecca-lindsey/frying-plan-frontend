@@ -3,9 +3,6 @@ function displayIngredients(ingredients) {
 }
 
 export default function RecipeCard(props) {
-  console.log(props.recipe.ingredients);
-  console.log(JSON.parse(props.recipe.ingredients));
-  console.log(typeof JSON.parse(props.recipe.ingredients));
   return (
     <div className="recipe-card" id={`recipe-${props.recipe.id}`}>
       <h3>{props.recipe.name}</h3>
