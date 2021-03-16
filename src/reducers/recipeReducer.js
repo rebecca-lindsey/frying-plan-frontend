@@ -16,7 +16,7 @@ export default function recipeReducer(
     case "ADD_RECIPES":
       return {
         ...state,
-        astronauts: action.recipes,
+        recipes: action.recipes,
         loading: false,
       };
     default:
