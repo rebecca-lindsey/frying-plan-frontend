@@ -10,19 +10,25 @@ function displayIngredients(ingredients) {
 export default function RecipeCard(props) {
   return (
     <div className="recipe-card" id={`recipe-${props.recipe.id}`}>
-      <h3>{props.recipe.name}</h3>
+      <h3>
+        <u>{props.recipe.name}</u>
+      </h3>
       <ul>
         <li>
-          <u>Category:</u> {props.recipe.category}
+          <b>Category:</b> {props.recipe.category}
         </li>
         <li>
           <b>Cuisine:</b> {props.recipe.cuisine}
         </li>
         <li>
-          Ingredients:{" "}
+          <b>Ingredients:</b>
           <ul>{displayIngredients(props.recipe.recipe_ingredients)}</ul>
         </li>
-        <li>Instructions: {props.recipe.instructions}</li>
+        <li>
+          <b>Instructions:</b>
+          <br />
+          {props.recipe.instructions}
+        </li>
       </ul>
     </div>
   );
