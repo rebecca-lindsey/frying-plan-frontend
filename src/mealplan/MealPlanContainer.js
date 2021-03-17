@@ -10,7 +10,6 @@ class MealPlanContainer extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div id="meal-plan-container" className="main-container">
         <h2>Your Meal Plan</h2>
