@@ -8,3 +8,9 @@
 .recipe-card h3 {
     text-align: center;
 }
+
+#recipe-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
