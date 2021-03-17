@@ -1,17 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchDays } from "../actions/fetchDays";
-import { fetchRecipes } from "../actions/fetchRecipes";
 import DayList from "./DayList";
 import RecipeCatalogue from "./RecipeCatalogue";
 import "./mealplan.css";
 
 class MealPlanContainer extends Component {
-  componentDidMount() {
-    this.props.fetchDays();
-    this.props.fetchRecipes();
-  }
-
   render() {
     return (
       <div id="meal-plan-container" className="main-container">
@@ -36,11 +29,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchDays: () => dispatch(fetchDays()),
-    fetchRecipes: () => dispatch(fetchRecipes()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MealPlanContainer);
+export default connect(mapStateToProps)(MealPlanContainer);
