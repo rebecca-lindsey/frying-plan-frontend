@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchDays } from "./actions/fetchDays";
+import { fetchRecipes } from "./actions/fetchRecipes";
 import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
 import MealPlanContainer from "./mealplan/MealPlanContainer";
 import RecipeContainer from "./recipes/RecipeContainer";
 import CreateRecipeContainer from "./createrecipe/CreateRecipeContainer";
 
-export default class App extends Component {
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchDays();
+    this.props.fetchRecipes();
+  }
+
   render() {
     return (
       <Router>
@@ -31,3 +39,12 @@ export default class App extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchDays: () => dispatch(fetchDays()),
+    fetchRecipes: () => dispatch(fetchRecipes()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);
