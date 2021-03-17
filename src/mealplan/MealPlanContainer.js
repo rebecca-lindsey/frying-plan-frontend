@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchDays } from "../actions/fetchDays";
+import DayList from "./DayList";
 import "./mealplan.css";
 
 class MealPlanContainer extends Component {
@@ -10,7 +11,12 @@ class MealPlanContainer extends Component {
 
   render() {
     console.log(this.props);
-    return <div id="meal-plan-container" className="main-container"></div>;
+    return (
+      <div id="meal-plan-container" className="main-container">
+        <h2>Your Meal Plan</h2>
+        {this.props.days.loading ? <h3>Loading...</h3> : <DayList />}
+      </div>
+    );
   }
 }
 
