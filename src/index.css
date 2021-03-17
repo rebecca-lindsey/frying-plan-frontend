@@ -12,35 +12,31 @@ Dark Gray: 262A2D */
 
 body {
   background-color: #edf4f4;
-  color: #262A2D;
-  font-family: 'Quicksand', sans-serif;
+  color: #262a2d;
+  font-family: "Quicksand", sans-serif;
 }
 
-h1, h2 {
-  font-family: 'Merienda One', cursive;
+h1,
+h2 {
+  font-family: "Merienda One", cursive;
 }
 
 h2 {
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
-.main-container  {
+.main-container {
   padding-top: 20px;
-  max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.main-container h2{
-    text-align: center;
+.main-container h2 {
+  text-align: center;
 }
 
 #app-container {
   min-width: 550px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }

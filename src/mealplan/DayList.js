@@ -8,11 +8,7 @@ class DayList extends Component {
   }
 
   render() {
-    return (
-      <div id="day-list">
-        <ul>{this.makeDayCards()}</ul>
-      </div>
-    );
+    return <div id="day-list">{this.makeDayCards()}</div>;
   }
 }
 
