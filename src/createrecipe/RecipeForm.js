@@ -1,8 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class RecipeForm extends Component {
-  state = {};
-
+class RecipeForm extends Component {
   handleChange = (e) => {
     this.setState({});
   };
@@ -12,6 +11,7 @@ export default class RecipeForm extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit}>
         <p>
@@ -33,7 +33,16 @@ export default class RecipeForm extends Component {
           Instructions:{" "}
           <input type="text" onChange={this.handleChange} name="instructions" />
         </p>
+        <p>
+          <input type="submit" />
+        </p>
       </form>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return state.recipes;
+};
+
+export default connect(mapStateToProps)(RecipeForm);
