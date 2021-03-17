@@ -4,9 +4,7 @@ import RecipeCard from "./RecipeCard";
 
 class RecipeList extends Component {
   makeRecipeCards() {
-    return this.props.recipes.recipes.map((recipe) => (
-      <RecipeCard recipe={recipe} />
-    ));
+    return this.props.recipes.map((recipe) => <RecipeCard recipe={recipe} />);
   }
 
   render() {
@@ -20,7 +18,7 @@ class RecipeList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    recipes: state.recipes,
+    recipes: state.recipes.recipes,
   };
 };
 

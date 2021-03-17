@@ -13,7 +13,7 @@ class RecipeContainer extends Component {
     return (
       <div id="recipe-container" className="main-container">
         <h2>All Recipes</h2>
-        {this.props.loading ? <h3>Loading...</h3> : <RecipeList />}
+        {this.props.recipes.loading ? <h3>Loading...</h3> : <RecipeList />}
       </div>
     );
   }
