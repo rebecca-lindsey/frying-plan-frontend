@@ -1,4 +1,10 @@
 .recipe-card {
-    border: 1px solid black;
+    background-color: #FFEFBC;
+    border: 4px double #262A2D;
     padding: 5px;
+    width: 350px;
+}
+
+.recipe-card h3 {
+    text-align: center;
 }
