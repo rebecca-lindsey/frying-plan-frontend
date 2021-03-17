@@ -4,6 +4,7 @@ import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
 import MealPlanContainer from "./mealplan/MealPlanContainer";
 import RecipeContainer from "./recipes/RecipeContainer";
+import CreateRecipeContainer from "./createrecipe/CreateRecipeContainer";
 
 export default class App extends Component {
   render() {
@@ -16,7 +17,7 @@ export default class App extends Component {
               <MealPlanContainer />
             </Route>
             <Route path="/recipes/new">
-              <h1>New Recipe Component Here</h1>
+              <CreateRecipeContainer />
             </Route>
             <Route path="/recipes">
               <RecipeContainer />

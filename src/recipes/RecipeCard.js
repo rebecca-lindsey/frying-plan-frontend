@@ -1,5 +1,4 @@
 function displayIngredients(ingredients) {
-  console.log(ingredients);
   return ingredients.map((ingredient) => (
     <li>
       {ingredient.ingredient.name} - {ingredient.amount}
