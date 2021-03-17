@@ -1,0 +1,31 @@
+#day-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.day-card {
+  width: 150px;
+  border: 1px solid #262a2d;
+  background-color: #ffefbc;
+  min-height: 300px;
+  text-align: center;
+}
+
+.day-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.meal-card {
+  background-color: #f6ba88;
+  border: 1px dashed #262a2d;
+  height: 40px;
+  padding: 5px;
+}
+
+/* Light Gray: E1E7E7
+Cream: FFEFBC
+Orange: F6BA88
+Red: C33E3F
+Dark Gray: 262A2D  */

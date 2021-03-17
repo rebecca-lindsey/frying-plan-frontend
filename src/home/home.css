@@ -1,9 +1,13 @@
 #home-image {
-   width: 512px;
-   height: 342px;
-   padding: 20px;
+  width: 512px;
+  height: 342px;
+  padding: 20px;
 }
 
-small a{
-    color: #C33E3F
+small a {
+  color: #c33e3f;
+}
+
+#home-container {
+  width: 600px;
 }
