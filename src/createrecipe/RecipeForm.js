@@ -20,7 +20,9 @@ class RecipeForm extends Component {
   };
 
   addNewIngredientField = (e) => {
-    console.log("Add new Ingredient!");
+    this.setState((prevState) => ({
+      ingredients: [...prevState.ingredients, { name: "", amount: "" }],
+    }));
   };
 
   render() {
