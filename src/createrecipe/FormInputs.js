@@ -19,7 +19,6 @@ function CategoryInput(props) {
 }
 
 function CuisineInput(props) {
-  console.log("Cuisine", props);
   return (
     <>
       <input
@@ -57,7 +56,10 @@ function IngredientInputs(props) {
       <label htmlFor={`ingredient-amount`}>Amount: </label>
       <input
         type="text"
-        name="ingredient-amount"
+        name={`ingredient-${index}-amount`}
+        data-id={index}
+        id={`ingredient-${index}-amount`}
+        value={ingredient.amount}
         className="ingredientAmount"
         onChange={props.handleChange}
       />

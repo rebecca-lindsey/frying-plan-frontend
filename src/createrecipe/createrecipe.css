@@ -1,12 +1,15 @@
-.ingredient-name,
-.ingredient-amount {
+.ingredientName {
   margin-right: 10px;
 }
 
 i {
-  color: green;
+  color: #6ac33e;
   font-size: 1.5em;
   align-self: center;
+}
+
+i:hover {
+  cursor: pointer;
 }
 
 .p-flex {
