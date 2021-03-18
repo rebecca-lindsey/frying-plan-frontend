@@ -11,6 +11,10 @@ class RecipeForm extends Component {
     e.preventDefault();
   };
 
+  addNewIngredientField = (e) => {
+    console.log("Add new Ingredient!");
+  };
+
   render() {
     console.log(this.props);
     return (
@@ -34,8 +38,8 @@ class RecipeForm extends Component {
             <CuisineList recipes={this.props.recipes} />
           )}
         </p>
-        <p>
-          Ingredients: <br />
+        <p>Ingredients:</p>
+        <p class="p-flex">
           Name:{" "}
           {this.props.loading ? (
             <input
@@ -52,7 +56,12 @@ class RecipeForm extends Component {
             type="text"
             onChange={this.handleChange}
             name="ingredient-amount"
+            className="ingredient-amount"
           />
+          <i
+            class="fas fa-plus-square"
+            onClick={this.addNewIngredientField}
+          ></i>
         </p>
         <p>
           Instructions: <br />

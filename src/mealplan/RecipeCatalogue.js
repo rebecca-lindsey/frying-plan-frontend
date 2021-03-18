@@ -8,8 +8,6 @@ class RecipeCatalogue extends Component {
   }
 
   render() {
-    console.log(this.props.recipes);
-
     return <div id="recipe-list-area">{this.makeRecipeCards()}</div>;
   }
 }
