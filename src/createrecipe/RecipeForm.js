@@ -7,12 +7,20 @@ class RecipeForm extends Component {
     name: "",
     category: "",
     cuisine: "",
-    ingredients: [{ name: "", amount: "" }],
+    ingredients: [{ ingredientName: "", ingredientAmount: "" }],
     instructions: "",
   };
 
   handleChange = (e) => {
-    this.setState({});
+    console.log("handleChange!");
+    if (["ingredientName", "ingredientAmount"].includes(e.target.className)) {
+      let ingredients = [...this.state.ingredients];
+      ingredients[e.target.dataset.id][e.target.className] = e.target.value;
+      this.setState({ ingredients });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
+    console.log(this.state);
   };
 
   handleSubmit = (e) => {
@@ -21,7 +29,10 @@ class RecipeForm extends Component {
 
   addNewIngredientField = (e) => {
     this.setState((prevState) => ({
-      ingredients: [...prevState.ingredients, { name: "", amount: "" }],
+      ingredients: [
+        ...prevState.ingredients,
+        { ingredientName: "", ingredientAmount: "" },
+      ],
     }));
   };
 
@@ -38,13 +49,19 @@ class RecipeForm extends Component {
           <label htmlFor="category">
             <b>Category: </b>
           </label>
-          <CategoryInput recipes={this.props.recipes} />
+          <CategoryInput
+            recipes={this.props.recipes}
+            handleChange={this.handleChange}
+          />
         </p>
         <p>
           <label htmlFor="cuisine">
             <b>Cuisine: </b>
           </label>
-          <CuisineInput recipes={this.props.recipes} />
+          <CuisineInput
+            recipes={this.props.recipes}
+            handleChange={this.handleChange}
+          />
         </p>
         <div>
           <label htmlFor="ingredients">
