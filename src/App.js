@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchDays } from "./actions/fetchDays";
 import { fetchRecipes } from "./actions/fetchRecipes";
 import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
@@ -11,7 +10,6 @@ import CreateRecipeContainer from "./createrecipe/CreateRecipeContainer";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchDays();
     this.props.fetchRecipes();
   }
 
@@ -42,7 +40,6 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDays: () => dispatch(fetchDays()),
     fetchRecipes: () => dispatch(fetchRecipes()),
   };
 };
