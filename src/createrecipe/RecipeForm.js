@@ -27,19 +27,27 @@ class RecipeForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <p>
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name">
+            <b>Name: </b>
+          </label>
           <input type="text" onChange={this.handleChange} name="name" />
         </p>
         <p>
-          <label htmlFor="category">Category: </label>
+          <label htmlFor="category">
+            <b>Category: </b>
+          </label>
           <CategoryInput recipes={this.props.recipes} />
         </p>
         <p>
-          <label htmlFor="cuisine">Cuisine: </label>
+          <label htmlFor="cuisine">
+            <b>Cuisine: </b>
+          </label>
           <CuisineInput recipes={this.props.recipes} />
         </p>
         <div>
-          <label htmlFor="ingredients">Ingredients: </label>
+          <label htmlFor="ingredients">
+            <b>Ingredients: </b>
+          </label>
           <IngredientInputs
             ingredients={this.state.ingredients}
             recipes={this.props.recipes}
@@ -51,7 +59,8 @@ class RecipeForm extends Component {
           ></i>
         </div>
         <p>
-          Instructions: <br />
+          <b>Instructions: </b>
+          <br />
           <textarea
             rows="5"
             cols="50"
