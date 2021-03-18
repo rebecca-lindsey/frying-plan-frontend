@@ -12,7 +12,6 @@ class RecipeForm extends Component {
   };
 
   handleChange = (e) => {
-    console.log("handleChange!");
     if (["ingredientName", "ingredientAmount"].includes(e.target.className)) {
       let ingredients = [...this.state.ingredients];
       ingredients[e.target.dataset.id][e.target.className] = e.target.value;
@@ -20,11 +19,11 @@ class RecipeForm extends Component {
     } else {
       this.setState({ [e.target.name]: e.target.value });
     }
-    console.log(this.state);
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state);
   };
 
   addNewIngredientField = (e) => {
@@ -99,4 +98,11 @@ const mapStateToProps = (state) => {
   return state.recipes;
 };
 
-export default connect(mapStateToProps)(RecipeForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addNewRecipe: (formData) =>
+      dispatch({ type: "ADD_NEW_RECIPE", payload: formData }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeForm);
