@@ -1,10 +1,13 @@
 function CategoryList(obj) {
-  console.log("CategoryList!", obj);
-  if (obj.recipes.length > 0) {
-    console.log("Time to go");
-  } else {
-    console.log("Not yet");
-  }
-  return null;
+  return (
+    <p>
+      <input type="text" name="category" list="category_list" />
+      <datalist id="category_list">
+        {obj.recipes.map((recipe) => (
+          <option value={recipe.category}>{recipe.category}</option>
+        ))}
+      </datalist>
+    </p>
+  );
 }
 export { CategoryList };
