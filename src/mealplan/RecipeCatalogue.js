@@ -4,7 +4,9 @@ import RecipeCard from "./RecipeCard";
 
 class RecipeCatalogue extends Component {
   makeRecipeCards() {
-    return this.props.recipes.map((recipe) => <RecipeCard recipe={recipe} />);
+    return this.props.recipes.map((recipe) => (
+      <RecipeCard recipe={recipe} key={recipe.id} />
+    ));
   }
 
   render() {

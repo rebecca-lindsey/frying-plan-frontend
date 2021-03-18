@@ -1,7 +1,7 @@
 function displayMeals(meals) {
   return meals.map((meal) => {
     return (
-      <li>
+      <li key={meal.id}>
         <div className="meal-card">
           {meal.name}:
           <br />
