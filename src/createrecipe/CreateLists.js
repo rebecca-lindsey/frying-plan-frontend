@@ -25,7 +25,6 @@ function CuisineList(obj) {
 }
 
 function IngredientList(obj) {
-  console.log(obj.recipes);
   return (
     <>
       <input
@@ -34,14 +33,20 @@ function IngredientList(obj) {
         list="ingredient_list"
         className="ingredient-name"
       />
-      <datalist id="ingredient_list">
-        {obj.recipes.map((recipe) =>
-          recipe.ingredients.map((ingredient) => (
-            <option value={ingredient.name}>{ingredient.name}</option>
-          ))
-        )}
-      </datalist>
+      {IngredientDatalist(obj)}
     </>
+  );
+}
+
+function IngredientDatalist(obj) {
+  return (
+    <datalist id="ingredient_list">
+      {obj.recipes.map((recipe) =>
+        recipe.ingredients.map((ingredient) => (
+          <option value={ingredient.name}>{ingredient.name}</option>
+        ))
+      )}
+    </datalist>
   );
 }
 
