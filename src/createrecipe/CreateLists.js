@@ -24,4 +24,25 @@ function CuisineList(obj) {
   );
 }
 
-export { CategoryList, CuisineList };
+function IngredientList(obj) {
+  console.log(obj.recipes);
+  return (
+    <>
+      <input
+        type="text"
+        name="ingredient-name"
+        list="ingredient_list"
+        className="ingredient-name"
+      />
+      <datalist id="ingredient_list">
+        {obj.recipes.map((recipe) =>
+          recipe.ingredients.map((ingredient) => (
+            <option value={ingredient.name}>{ingredient.name}</option>
+          ))
+        )}
+      </datalist>
+    </>
+  );
+}
+
+export { CategoryList, CuisineList, IngredientList };
