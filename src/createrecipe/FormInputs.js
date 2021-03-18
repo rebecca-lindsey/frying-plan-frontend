@@ -30,7 +30,7 @@ function CuisineInput(obj) {
 
 function IngredientInputs(props) {
   return props.ingredients.map((ingredient, index) => (
-    <>
+    <p key={index}>
       <label htmlFor={`ingredient-name`}>Name: </label>
       <input
         type="text"
@@ -50,7 +50,7 @@ function IngredientInputs(props) {
         className="ingredient-amount"
         onChange={() => props.handleChange}
       />
-    </>
+    </p>
   ));
 }
 
