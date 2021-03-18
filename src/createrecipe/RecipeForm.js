@@ -3,6 +3,14 @@ import { connect } from "react-redux";
 import { CategoryList, CuisineList, IngredientList } from "./CreateLists";
 
 class RecipeForm extends Component {
+  state = {
+    name: "",
+    category: "",
+    cuisine: "",
+    ingredients: [{ name: "", amount: "" }],
+    instructions: "",
+  };
+
   handleChange = (e) => {
     this.setState({});
   };
@@ -15,37 +23,18 @@ class RecipeForm extends Component {
     console.log("Add new Ingredient!");
   };
 
-  render() {
-    console.log(this.props);
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <p>
-          Name: <input type="text" onChange={this.handleChange} name="name" />
-        </p>
-        <p>
-          Category:{" "}
-          {this.props.loading ? (
-            <input type="text" onChange={this.handleChange} name="category" />
-          ) : (
-            <CategoryList recipes={this.props.recipes} />
-          )}
-        </p>
-        <p>
-          Cuisine:{" "}
-          {this.props.loading ? (
-            <input type="text" onChange={this.handleChange} name="cuisine" />
-          ) : (
-            <CuisineList recipes={this.props.recipes} />
-          )}
-        </p>
-        <p>Ingredients:</p>
+  displayIngredientFields = (e) => {
+    return this.state.ingredients.map((ingredient, idx) => {
+      return (
         <p class="p-flex">
-          Name:{" "}
+          <label htmlFor={`ingredient-${idx}`}>Name: </label>
           {this.props.loading ? (
             <input
               type="text"
               onChange={this.handleChange}
-              name="ingredient-name"
+              name={`ingredient-${idx}-name`}
+              data-id={idx}
+              id={`ingredient-${idx}-name`}
               className="ingredient-name"
             />
           ) : (
@@ -58,8 +47,40 @@ class RecipeForm extends Component {
             name="ingredient-amount"
             className="ingredient-amount"
           />
+        </p>
+      );
+    });
+  };
+
+  render() {
+    console.log(this.props);
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <p>
+          <label htmlFor="name">Name: </label>
+          <input type="text" onChange={this.handleChange} name="name" />
+        </p>
+        <p>
+          <label htmlFor="category">Category: </label>
+          {this.props.loading ? (
+            <input type="text" onChange={this.handleChange} name="category" />
+          ) : (
+            <CategoryList recipes={this.props.recipes} />
+          )}
+        </p>
+        <p>
+          <label htmlFor="cuisine">Cuisine: </label>
+          {this.props.loading ? (
+            <input type="text" onChange={this.handleChange} name="cuisine" />
+          ) : (
+            <CuisineList recipes={this.props.recipes} />
+          )}
+        </p>
+        <p>
+          Ingredients:
+          {this.displayIngredientFields()}
           <i
-            class="fas fa-plus-square"
+            className="fas fa-plus-square"
             onClick={this.addNewIngredientField}
           ></i>
         </p>
