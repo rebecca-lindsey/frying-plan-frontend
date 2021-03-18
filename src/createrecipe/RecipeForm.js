@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CategoryList, CuisineList } from "./CreateLists";
+import { CategoryList, CuisineList, IngredientList } from "./CreateLists";
 
 class RecipeForm extends Component {
   handleChange = (e) => {
@@ -37,12 +37,16 @@ class RecipeForm extends Component {
         <p>
           Ingredients: <br />
           Name:{" "}
-          <input
-            type="text"
-            onChange={this.handleChange}
-            name="ingredient-name"
-            className="ingredient-name"
-          />
+          {this.props.loading ? (
+            <input
+              type="text"
+              onChange={this.handleChange}
+              name="ingredient-name"
+              className="ingredient-name"
+            />
+          ) : (
+            <IngredientList recipes={this.props.recipes} />
+          )}
           Amount:{" "}
           <input
             type="text"
