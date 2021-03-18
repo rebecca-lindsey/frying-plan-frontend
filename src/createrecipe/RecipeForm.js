@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CategoryList, CuisineList, IngredientList } from "./CreateLists";
+import { CategoryList, CuisineList, IngredientInput } from "./CreateLists";
 
 class RecipeForm extends Component {
   state = {
@@ -23,23 +23,23 @@ class RecipeForm extends Component {
     console.log("Add new Ingredient!");
   };
 
-  displayIngredientFields = (e) => {
-    return this.state.ingredients.map((ingredient, idx) => {
-      return (
-        <p className="p-flex" key={idx}>
-          <label htmlFor={`ingredient-${idx}`}>Name: </label>
-          <IngredientList recipes={this.props.recipes} key={idx} />
-          <label htmlFor={`ingredient-${idx}-amount`}>Amount: </label>
-          <input
-            type="text"
-            onChange={this.handleChange}
-            name="ingredient-amount"
-            className="ingredient-amount"
-          />
-        </p>
-      );
-    });
-  };
+  // displayIngredientFields = (e) => {
+  //   return this.state.ingredients.map((ingredient, idx) => {
+  //     return (
+  //       <p className="p-flex" key={idx}>
+  //         <label htmlFor={`ingredient-${idx}`}>Name: </label>
+  //         <IngredientList recipes={this.props.recipes} key={idx} />
+  //         <label htmlFor={`ingredient-${idx}-amount`}>Amount: </label>
+  //         <input
+  //           type="text"
+  //           onChange={this.handleChange}
+  //           name="ingredient-amount"
+  //           className="ingredient-amount"
+  //         />
+  //       </p>
+  //     );
+  //   });
+  // };
 
   render() {
     console.log(this.props);
@@ -59,7 +59,13 @@ class RecipeForm extends Component {
         </p>
         <p>
           Ingredients:
-          {this.displayIngredientFields()}
+          {this.state.ingredients.map((ingredient, idx) => (
+            <IngredientInput
+              recipes={this.props.recipes}
+              handleChange={this.handleChange}
+              key={idx}
+            />
+          ))}
           <i
             className="fas fa-plus-square"
             onClick={this.addNewIngredientField}
