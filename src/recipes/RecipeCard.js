@@ -1,7 +1,6 @@
 function displayIngredients(ingredients) {
   return ingredients.map((ingredient) => (
     <li key={`recipe_ingredient-${ingredient.id}`}>
-      {console.log(ingredient.id)}
       {ingredient.ingredient.name} - {ingredient.amount}
     </li>
   ));
@@ -14,17 +13,17 @@ export default function RecipeCard(props) {
         <u>{props.recipe.name}</u>
       </h3>
       <ul>
-        <li key={`recipe-${props.recipe.id}-category`}>
+        <li>
           <b>Category:</b> {props.recipe.category}
         </li>
-        <li key={`recipe-${props.recipe.id}-cuisine`}>
+        <li>
           <b>Cuisine:</b> {props.recipe.cuisine}
         </li>
-        <li key={`recipe-${props.recipe.id}-ingredients`}>
+        <li>
           <b>Ingredients:</b>
           <ul>{displayIngredients(props.recipe.recipe_ingredients)}</ul>
         </li>
-        <li key={`recipe-${props.recipe.id}-instructions`}>
+        <li>
           <b>Instructions:</b>
           <br />
           {props.recipe.instructions}
