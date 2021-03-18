@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchRecipes } from "./actions/fetchRecipes";
+import fetchRecipes from "./actions/fetchRecipes";
 import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
 import MealPlanContainer from "./mealplan/MealPlanContainer";

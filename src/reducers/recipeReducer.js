@@ -17,6 +17,9 @@ export default function recipeReducer(
         recipes: action.recipes,
         loading: false,
       };
+    case "ADDED_RECIPE":
+      console.log("ADDED recipe!");
+      return state;
     default:
       return state;
   }

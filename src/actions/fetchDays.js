@@ -1,4 +1,4 @@
-export function fetchDays() {
+export default function fetchDays() {
   return (dispatch) => {
     dispatch({ type: "REQUEST_DAYS" });
     fetch("http://127.0.0.1:3000/users/1/days.json")

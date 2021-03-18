@@ -1,4 +1,4 @@
-export function fetchRecipes() {
+export default function fetchRecipes() {
   return (dispatch) => {
     dispatch({ type: "REQUEST_RECIPES" });
     fetch("http://127.0.0.1:3000/recipes.json")
