@@ -35,12 +35,29 @@ class RecipeForm extends Component {
           )}
         </p>
         <p>
-          Ingredients:{" "}
-          <input type="text" onChange={this.handleChange} name="ingredients" />
+          Ingredients: <br />
+          Name:{" "}
+          <input
+            type="text"
+            onChange={this.handleChange}
+            name="ingredient-name"
+            className="ingredient-name"
+          />
+          Amount:{" "}
+          <input
+            type="text"
+            onChange={this.handleChange}
+            name="ingredient-amount"
+          />
         </p>
         <p>
-          Instructions:{" "}
-          <input type="text" onChange={this.handleChange} name="instructions" />
+          Instructions: <br />
+          <textarea
+            rows="5"
+            cols="50"
+            onChange={this.handleChange}
+            name="instructions"
+          />
         </p>
         <p>
           <input type="submit" />
