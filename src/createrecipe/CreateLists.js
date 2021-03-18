@@ -28,16 +28,25 @@ function CuisineList(obj) {
   );
 }
 
-function IngredientList(obj) {
+function IngredientInput(obj, handleChange) {
   return (
     <>
+      <label htmlFor={`ingredient-name`}>Name: </label>
       <input
         type="text"
         name="ingredient-name"
         list="ingredient_list"
         className="ingredient-name"
+        onChange={() => handleChange}
       />
       {IngredientDatalist(obj)}
+      <label htmlFor={`ingredient-amount`}>Amount: </label>
+      <input
+        type="text"
+        name="ingredient-amount"
+        className="ingredient-amount"
+        onChange={() => handleChange}
+      />
     </>
   );
 }
@@ -56,4 +65,4 @@ function IngredientDatalist(obj) {
   );
 }
 
-export { CategoryList, CuisineList, IngredientList };
+export { CategoryList, CuisineList, IngredientInput };
