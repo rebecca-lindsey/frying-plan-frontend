@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CategoryList } from "./CreateLists";
+import { CategoryList, CuisineList } from "./CreateLists";
 
 class RecipeForm extends Component {
   handleChange = (e) => {
@@ -28,7 +28,11 @@ class RecipeForm extends Component {
         </p>
         <p>
           Cuisine:{" "}
-          <input type="text" onChange={this.handleChange} name="cuisine" />
+          {this.props.loading ? (
+            <input type="text" onChange={this.handleChange} name="cuisine" />
+          ) : (
+            <CuisineList recipes={this.props.recipes} />
+          )}
         </p>
         <p>
           Ingredients:{" "}

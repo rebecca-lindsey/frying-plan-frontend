@@ -10,4 +10,18 @@ function CategoryList(obj) {
     </>
   );
 }
-export { CategoryList };
+
+function CuisineList(obj) {
+  return (
+    <>
+      <input type="text" name="cuisine" list="cuisine_list" />
+      <datalist id="cuisine_list">
+        {obj.recipes.map((recipe) => (
+          <option value={recipe.cuisine}>{recipe.cuisine}</option>
+        ))}
+      </datalist>
+    </>
+  );
+}
+
+export { CategoryList, CuisineList };
