@@ -26,21 +26,10 @@ class RecipeForm extends Component {
   displayIngredientFields = (e) => {
     return this.state.ingredients.map((ingredient, idx) => {
       return (
-        <p className="p-flex">
+        <p className="p-flex" key={idx}>
           <label htmlFor={`ingredient-${idx}`}>Name: </label>
-          {this.props.loading ? (
-            <input
-              type="text"
-              onChange={this.handleChange}
-              name={`ingredient-${idx}-name`}
-              data-id={idx}
-              id={`ingredient-${idx}-name`}
-              className="ingredient-name"
-            />
-          ) : (
-            <IngredientList recipes={this.props.recipes} />
-          )}
-          Amount:{" "}
+          <IngredientList recipes={this.props.recipes} key={idx} />
+          <label htmlFor={`ingredient-${idx}-amount`}>Amount: </label>
           <input
             type="text"
             onChange={this.handleChange}
