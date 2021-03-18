@@ -9,7 +9,7 @@ export default class CreateRecipe extends Component {
       <div id="create-recipe-container" className="main-container">
         <h2>Create Recipe</h2>
 
-        <RecipeForm />
+        {this.props.loading ? <h3>Loading...</h3> : <RecipeForm />}
       </div>
     );
   }
