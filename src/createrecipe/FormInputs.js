@@ -1,9 +1,14 @@
-function CategoryInput(obj) {
+function CategoryInput(props) {
   return (
     <>
-      <input type="text" name="category" list="category_list" />
+      <input
+        type="text"
+        name="category"
+        list="category_list"
+        onChange={props.handleChange}
+      />
       <datalist id="category_list">
-        {obj.recipes.map((recipe, idx) => (
+        {props.recipes.map((recipe, idx) => (
           <option value={recipe.category} key={idx}>
             {recipe.category}
           </option>
@@ -13,12 +18,18 @@ function CategoryInput(obj) {
   );
 }
 
-function CuisineInput(obj) {
+function CuisineInput(props) {
+  console.log("Cuisine", props);
   return (
     <>
-      <input type="text" name="cuisine" list="cuisine_list" />
+      <input
+        type="text"
+        name="cuisine"
+        list="cuisine_list"
+        onChange={props.handleChange}
+      />
       <datalist id="cuisine_list">
-        {obj.recipes.map((recipe, idx) => (
+        {props.recipes.map((recipe, idx) => (
           <option value={recipe.cuisine} key={idx}>
             {recipe.cuisine}
           </option>
@@ -39,16 +50,16 @@ function IngredientInputs(props) {
         id={`ingredient-${index}-name`}
         value={ingredient.name}
         list="ingredient_list"
-        className="ingredient-name"
-        onChange={() => props.handleChange}
+        className="ingredientName"
+        onChange={props.handleChange}
       />
       {IngredientDatalist(props.recipes)}
       <label htmlFor={`ingredient-amount`}>Amount: </label>
       <input
         type="text"
         name="ingredient-amount"
-        className="ingredient-amount"
-        onChange={() => props.handleChange}
+        className="ingredientAmount"
+        onChange={props.handleChange}
       />
     </p>
   ));
