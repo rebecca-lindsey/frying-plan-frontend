@@ -8,11 +8,7 @@ class RecipeList extends Component {
   }
 
   render() {
-    return (
-      <div id="recipe-list">
-        <ul>{this.makeRecipeCards()}</ul>
-      </div>
-    );
+    return <div id="recipe-list">{this.makeRecipeCards()}</div>;
   }
 }
 
