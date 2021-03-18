@@ -26,7 +26,7 @@ class RecipeForm extends Component {
   displayIngredientFields = (e) => {
     return this.state.ingredients.map((ingredient, idx) => {
       return (
-        <p class="p-flex">
+        <p className="p-flex">
           <label htmlFor={`ingredient-${idx}`}>Name: </label>
           {this.props.loading ? (
             <input
@@ -62,19 +62,11 @@ class RecipeForm extends Component {
         </p>
         <p>
           <label htmlFor="category">Category: </label>
-          {this.props.loading ? (
-            <input type="text" onChange={this.handleChange} name="category" />
-          ) : (
-            <CategoryList recipes={this.props.recipes} />
-          )}
+          <CategoryList recipes={this.props.recipes} />
         </p>
         <p>
           <label htmlFor="cuisine">Cuisine: </label>
-          {this.props.loading ? (
-            <input type="text" onChange={this.handleChange} name="cuisine" />
-          ) : (
-            <CuisineList recipes={this.props.recipes} />
-          )}
+          <CuisineList recipes={this.props.recipes} />
         </p>
         <p>
           Ingredients:
