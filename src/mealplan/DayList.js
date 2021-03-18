@@ -4,7 +4,7 @@ import DayCard from "./DayCard";
 
 class DayList extends Component {
   makeDayCards() {
-    return this.props.days.map((day) => <DayCard day={day} />);
+    return this.props.days.map((day) => <DayCard day={day} key={day.id} />);
   }
 
   render() {
