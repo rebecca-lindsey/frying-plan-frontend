@@ -12,15 +12,19 @@ class RecipeForm extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit}>
-        <CategoryList recipes={this.props.recipes} />
         <p>
           Name: <input type="text" onChange={this.handleChange} name="name" />
         </p>
         <p>
           Category:{" "}
-          <input type="text" onChange={this.handleChange} name="category" />
+          {this.props.loading ? (
+            <input type="text" onChange={this.handleChange} name="category" />
+          ) : (
+            <CategoryList recipes={this.props.recipes} />
+          )}
         </p>
         <p>
           Cuisine:{" "}
