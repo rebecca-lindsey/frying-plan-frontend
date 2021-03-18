@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CategoryList, CuisineList, IngredientInput } from "./CreateLists";
+import { CategoryInput, CuisineInput, IngredientInputs } from "./FormInputs";
 
 class RecipeForm extends Component {
   state = {
@@ -23,26 +23,7 @@ class RecipeForm extends Component {
     console.log("Add new Ingredient!");
   };
 
-  // displayIngredientFields = (e) => {
-  //   return this.state.ingredients.map((ingredient, idx) => {
-  //     return (
-  //       <p className="p-flex" key={idx}>
-  //         <label htmlFor={`ingredient-${idx}`}>Name: </label>
-  //         <IngredientList recipes={this.props.recipes} key={idx} />
-  //         <label htmlFor={`ingredient-${idx}-amount`}>Amount: </label>
-  //         <input
-  //           type="text"
-  //           onChange={this.handleChange}
-  //           name="ingredient-amount"
-  //           className="ingredient-amount"
-  //         />
-  //       </p>
-  //     );
-  //   });
-  // };
-
   render() {
-    console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit}>
         <p>
@@ -51,21 +32,21 @@ class RecipeForm extends Component {
         </p>
         <p>
           <label htmlFor="category">Category: </label>
-          <CategoryList recipes={this.props.recipes} />
+          <CategoryInput recipes={this.props.recipes} />
         </p>
         <p>
           <label htmlFor="cuisine">Cuisine: </label>
-          <CuisineList recipes={this.props.recipes} />
+          <CuisineInput recipes={this.props.recipes} />
         </p>
         <p>
-          Ingredients:
-          {this.state.ingredients.map((ingredient, idx) => (
-            <IngredientInput
-              recipes={this.props.recipes}
-              handleChange={this.handleChange}
-              key={idx}
-            />
-          ))}
+          <label htmlFor="ingredients">Ingredients: </label>
+        </p>
+        <p className="p-flex">
+          <IngredientInputs
+            ingredients={this.state.ingredients}
+            recipes={this.props.recipes}
+            handleChange={this.handleChange}
+          />
           <i
             className="fas fa-plus-square"
             onClick={this.addNewIngredientField}

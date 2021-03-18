@@ -1,4 +1,4 @@
-function CategoryList(obj) {
+function CategoryInput(obj) {
   return (
     <>
       <input type="text" name="category" list="category_list" />
@@ -13,7 +13,7 @@ function CategoryList(obj) {
   );
 }
 
-function CuisineList(obj) {
+function CuisineInput(obj) {
   return (
     <>
       <input type="text" name="cuisine" list="cuisine_list" />
@@ -28,33 +28,36 @@ function CuisineList(obj) {
   );
 }
 
-function IngredientInput(obj, handleChange) {
-  return (
+function IngredientInputs(props) {
+  return props.ingredients.map((ingredient, index) => (
     <>
       <label htmlFor={`ingredient-name`}>Name: </label>
       <input
         type="text"
-        name="ingredient-name"
+        name={`ingredient-${index}-name`}
+        data-id={index}
+        id={`ingredient-${index}-name`}
+        value={ingredient.name}
         list="ingredient_list"
         className="ingredient-name"
-        onChange={() => handleChange}
+        onChange={() => props.handleChange}
       />
-      {IngredientDatalist(obj)}
+      {IngredientDatalist(props.recipes)}
       <label htmlFor={`ingredient-amount`}>Amount: </label>
       <input
         type="text"
         name="ingredient-amount"
         className="ingredient-amount"
-        onChange={() => handleChange}
+        onChange={() => props.handleChange}
       />
     </>
-  );
+  ));
 }
 
-function IngredientDatalist(obj) {
+function IngredientDatalist(recipes) {
   return (
     <datalist id="ingredient_list">
-      {obj.recipes.map((recipe) =>
+      {recipes.map((recipe) =>
         recipe.ingredients.map((ingredient, idx) => (
           <option value={ingredient.name} key={idx}>
             {ingredient.name}
@@ -65,4 +68,4 @@ function IngredientDatalist(obj) {
   );
 }
 
-export { CategoryList, CuisineList, IngredientInput };
+export { CategoryInput, CuisineInput, IngredientInputs };
