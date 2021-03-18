@@ -38,10 +38,8 @@ class RecipeForm extends Component {
           <label htmlFor="cuisine">Cuisine: </label>
           <CuisineInput recipes={this.props.recipes} />
         </p>
-        <p>
+        <div>
           <label htmlFor="ingredients">Ingredients: </label>
-        </p>
-        <p className="p-flex">
           <IngredientInputs
             ingredients={this.state.ingredients}
             recipes={this.props.recipes}
@@ -51,7 +49,7 @@ class RecipeForm extends Component {
             className="fas fa-plus-square"
             onClick={this.addNewIngredientField}
           ></i>
-        </p>
+        </div>
         <p>
           Instructions: <br />
           <textarea
