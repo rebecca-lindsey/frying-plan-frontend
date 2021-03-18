@@ -1,37 +1,51 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CategoryInput, CuisineInput, IngredientInputs } from "./FormInputs";
+import createRecipe from "../actions/createRecipe";
 
 class RecipeForm extends Component {
   state = {
-    name: "",
-    category: "",
-    cuisine: "",
-    ingredients: [{ ingredientName: "", ingredientAmount: "" }],
-    instructions: "",
+    recipe: {
+      name: "",
+      category: "",
+      cuisine: "",
+      ingredients_attributes: [{ ingredientName: "", ingredientAmount: "" }],
+      instructions: "",
+    },
   };
 
   handleChange = (e) => {
     if (["ingredientName", "ingredientAmount"].includes(e.target.className)) {
-      let ingredients = [...this.state.ingredients];
+      let ingredients = [...this.state.recipe.ingredients_attributes];
       ingredients[e.target.dataset.id][e.target.className] = e.target.value;
-      this.setState({ ingredients });
+      this.setState({
+        ...this.state,
+        recipe: { ...this.state.recipe, ingredients_attributes: ingredients },
+      });
     } else {
-      this.setState({ [e.target.name]: e.target.value });
+      this.setState({
+        ...this.state,
+        recipe: { ...this.state.recipe, [e.target.name]: e.target.value },
+      });
     }
+    console.log(this.state);
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
+    this.props.createRecipe(this.state);
   };
 
   addNewIngredientField = (e) => {
     this.setState((prevState) => ({
-      ingredients: [
-        ...prevState.ingredients,
-        { ingredientName: "", ingredientAmount: "" },
-      ],
+      recipe: {
+        ...prevState.recipe,
+        ingredients_attributes: [
+          ...prevState.recipe.ingredients_attributes,
+          { ingredientName: "", ingredientAmount: "" },
+        ],
+      },
     }));
   };
 
@@ -67,7 +81,7 @@ class RecipeForm extends Component {
             <b>Ingredients: </b>
           </label>
           <IngredientInputs
-            ingredients={this.state.ingredients}
+            ingredients={this.state.recipe.ingredients_attributes}
             recipes={this.props.recipes}
             handleChange={this.handleChange}
           />
@@ -98,11 +112,4 @@ const mapStateToProps = (state) => {
   return state.recipes;
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addNewRecipe: (formData) =>
-      dispatch({ type: "ADD_NEW_RECIPE", payload: formData }),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeForm);
+export default connect(mapStateToProps, { createRecipe })(RecipeForm);

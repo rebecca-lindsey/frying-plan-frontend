@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchDays } from "../actions/fetchDays";
+import fetchDays from "../actions/fetchDays";
 import DayList from "./DayList";
 import RecipeCatalogue from "./RecipeCatalogue";
 import "./mealplan.css";
