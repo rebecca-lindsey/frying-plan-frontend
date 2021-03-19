@@ -1,4 +1,4 @@
-.ingredientName {
+.name {
   margin-right: 10px;
 }
 
@@ -16,4 +16,41 @@ i:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+input[name="name"],
+[name="category"],
+[name="cuisine"] {
+  width: 200px;
+}
+
+#submit-button,
+#ingredient-controls {
+  text-align: center;
+  padding: 5px;
+}
+
+#ingredient-inputs p {
+  padding-top: 5px;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  background-color: #f6ba88;
+  border: none;
+  box-shadow: 5px 5px 5px #1a191a;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #fad3b3;
+}
+
+form input,
+form textarea {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+}
+form p {
+  padding-top: 5px;
 }
