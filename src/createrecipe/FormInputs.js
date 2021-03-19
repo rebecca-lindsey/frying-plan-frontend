@@ -1,3 +1,11 @@
+function uniqueValues(array, attribute) {
+  return [...new Set(array.map((item) => item[attribute]))].map((item, idx) => (
+    <option value={item} key={idx}>
+      {item}
+    </option>
+  ));
+}
+
 function CategoryInput(props) {
   return (
     <>
@@ -10,11 +18,7 @@ function CategoryInput(props) {
         required
       />
       <datalist id="category_list">
-        {props.recipes.map((recipe, idx) => (
-          <option value={recipe.category} key={idx}>
-            {recipe.category}
-          </option>
-        ))}
+        {uniqueValues(props.recipes, "category")}
       </datalist>
     </>
   );
@@ -32,11 +36,7 @@ function CuisineInput(props) {
         required
       />
       <datalist id="cuisine_list">
-        {props.recipes.map((recipe, idx) => (
-          <option value={recipe.cuisine} key={idx}>
-            {recipe.cuisine}
-          </option>
-        ))}
+        {uniqueValues(props.recipes, "cuisine")}
       </datalist>
     </>
   );
@@ -58,7 +58,10 @@ function IngredientInputs(props) {
         onChange={props.handleChange}
         required
       />
-      {IngredientDatalist(props.recipes)}
+      <datalist id="ingredient_list">
+        {IngredientDatalist(props.recipes)}
+      </datalist>
+
       <label htmlFor={`ingredient-amount`}>Amount: </label>
       <input
         type="text"
@@ -75,15 +78,19 @@ function IngredientInputs(props) {
 }
 
 function IngredientDatalist(recipes) {
+  const ingredientSet = new Set();
+  recipes.forEach((recipe) => {
+    recipe.ingredients.forEach((ingredient) =>
+      ingredientSet.add(ingredient.name)
+    );
+  });
   return (
     <datalist id="ingredient_list">
-      {recipes.map((recipe) =>
-        recipe.ingredients.map((ingredient, idx) => (
-          <option value={ingredient.name} key={idx}>
-            {ingredient.name}
-          </option>
-        ))
-      )}
+      {[...ingredientSet].sort().map((ingredient, idx) => (
+        <option value={ingredient} key={idx}>
+          {ingredient}
+        </option>
+      ))}
     </datalist>
   );
 }
