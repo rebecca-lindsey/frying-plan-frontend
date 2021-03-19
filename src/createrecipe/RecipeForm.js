@@ -73,6 +73,28 @@ class RecipeForm extends Component {
     alert("Your recipe has been saved!");
   };
 
+  createRemoveIngredientButton = () => {
+    if (this.state.recipe.recipe_ingredients_attributes.length > 1) {
+      return (
+        <i
+          className="fas fa-minus-square"
+          onClick={this.removeIngredientField}
+        ></i>
+      );
+    }
+  };
+
+  removeIngredientField = (e) => {
+    this.setState((prevState) => ({
+      recipe: {
+        ...prevState.recipe,
+        recipe_ingredients_attributes: [
+          ...prevState.recipe.recipe_ingredients_attributes.slice(0, -1),
+        ],
+      },
+    }));
+  };
+
   addNewIngredientField = (e) => {
     this.setState((prevState) => ({
       recipe: {
@@ -140,6 +162,7 @@ class RecipeForm extends Component {
               className="fas fa-plus-square"
               onClick={this.addNewIngredientField}
             ></i>
+            {this.createRemoveIngredientButton()}
           </p>
         </div>
         <p>
