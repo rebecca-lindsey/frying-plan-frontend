@@ -27,7 +27,8 @@
   text-align: center;
 }
 
-.day-card ul {
+.day-card ul,
+#recipe-list-area ul {
   list-style: none;
   padding: 0;
 }

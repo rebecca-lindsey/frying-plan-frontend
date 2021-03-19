@@ -4,6 +4,7 @@ import fetchDays from "../actions/fetchDays";
 import DayList from "./DayList";
 import RecipeCatalogue from "./RecipeCatalogue";
 import "./mealplan.css";
+import { DragDropContext } from "react-beautiful-dnd";
 
 class MealPlanContainer extends Component {
   componentDidMount() {
@@ -12,20 +13,22 @@ class MealPlanContainer extends Component {
 
   render() {
     return (
-      <div id="meal-plan-container" className="main-container">
-        <div id="recipe-catalogue">
-          <h2>Recipes</h2>
-          {this.props.recipes.loading ? (
-            <h3>Loading...</h3>
-          ) : (
-            <RecipeCatalogue />
-          )}
+      <DragDropContext>
+        <div id="meal-plan-container" className="main-container">
+          <div id="recipe-catalogue">
+            <h2>Recipes</h2>
+            {this.props.recipes.loading ? (
+              <h3>Loading...</h3>
+            ) : (
+              <RecipeCatalogue />
+            )}
+          </div>
+          <div id="calendar">
+            <h2>Your Meal Plan</h2>
+            {this.props.days.loading ? <h3>Loading...</h3> : <DayList />}
+          </div>
         </div>
-        <div id="calendar">
-          <h2>Your Meal Plan</h2>
-          {this.props.days.loading ? <h3>Loading...</h3> : <DayList />}
-        </div>
-      </div>
+      </DragDropContext>
     );
   }
 }
