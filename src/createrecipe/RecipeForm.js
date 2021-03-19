@@ -87,6 +87,7 @@ class RecipeForm extends Component {
             onChange={this.handleChange}
             name="name"
             value={this.state.recipe.name}
+            required
           />
         </p>
         <p>
@@ -135,10 +136,11 @@ class RecipeForm extends Component {
           <br />
           <textarea
             rows="5"
-            cols="52"
+            cols="58"
             onChange={this.handleChange}
             name="instructions"
             value={this.state.recipe.instructions}
+            required
           />
         </p>
         <p id="submit-button">
