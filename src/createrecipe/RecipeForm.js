@@ -60,6 +60,7 @@ class RecipeForm extends Component {
         instructions: "",
       },
     });
+    alert("Your recipe has been saved!");
   };
 
   addNewIngredientField = (e) => {

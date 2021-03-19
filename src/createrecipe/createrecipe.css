@@ -46,6 +46,10 @@ input[type="submit"]:hover {
   background-color: #fad3b3;
 }
 
+input[type="submit"]:focus {
+  outline: 1px solid #1a191a;
+}
+
 form input,
 form textarea {
   font-family: "Quicksand", sans-serif;
@@ -53,4 +57,8 @@ form textarea {
 }
 form p {
   padding-top: 5px;
+}
+
+form {
+  padding-bottom: 20px;
 }
