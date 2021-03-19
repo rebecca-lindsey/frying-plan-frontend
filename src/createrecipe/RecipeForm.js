@@ -17,9 +17,15 @@ class RecipeForm extends Component {
   };
 
   handleChange = (e) => {
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     if ("amount" === e.target.className) {
       let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
-      ingredients[e.target.dataset.id].amount = e.target.value;
+      ingredients[e.target.dataset.id].amount = capitalizeFirstLetter(
+        e.target.value
+      );
       this.setState({
         ...this.state,
         recipe: {
@@ -29,8 +35,9 @@ class RecipeForm extends Component {
       });
     } else if ("name" === e.target.className) {
       let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
-      ingredients[e.target.dataset.id].ingredient_attributes.name =
-        e.target.value;
+      ingredients[
+        e.target.dataset.id
+      ].ingredient_attributes.name = capitalizeFirstLetter(e.target.value);
       this.setState({
         ...this.state,
         recipe: {
@@ -41,7 +48,10 @@ class RecipeForm extends Component {
     } else {
       this.setState({
         ...this.state,
-        recipe: { ...this.state.recipe, [e.target.name]: e.target.value },
+        recipe: {
+          ...this.state.recipe,
+          [e.target.name]: capitalizeFirstLetter(e.target.value),
+        },
       });
     }
   };
