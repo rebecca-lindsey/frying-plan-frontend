@@ -9,18 +9,34 @@ class RecipeForm extends Component {
       name: "",
       category: "",
       cuisine: "",
-      ingredients_attributes: [{ ingredientName: "", ingredientAmount: "" }],
+      recipe_ingredients_attributes: [
+        { amount: "", ingredient_attributes: { name: "" } },
+      ],
       instructions: "",
     },
   };
 
   handleChange = (e) => {
-    if (["ingredientName", "ingredientAmount"].includes(e.target.className)) {
-      let ingredients = [...this.state.recipe.ingredients_attributes];
-      ingredients[e.target.dataset.id][e.target.className] = e.target.value;
+    if ("amount" === e.target.className) {
+      let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
+      ingredients[e.target.dataset.id].amount = e.target.value;
       this.setState({
         ...this.state,
-        recipe: { ...this.state.recipe, ingredients_attributes: ingredients },
+        recipe: {
+          ...this.state.recipe,
+          recipe_ingredients_attributes: ingredients,
+        },
+      });
+    } else if ("name" === e.target.className) {
+      let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
+      ingredients[e.target.dataset.id].ingredient_attributes.name =
+        e.target.value;
+      this.setState({
+        ...this.state,
+        recipe: {
+          ...this.state.recipe,
+          recipe_ingredients_attributes: ingredients,
+        },
       });
     } else {
       this.setState({
@@ -28,12 +44,10 @@ class RecipeForm extends Component {
         recipe: { ...this.state.recipe, [e.target.name]: e.target.value },
       });
     }
-    console.log(this.state);
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.props.createRecipe(this.state);
   };
 
@@ -41,9 +55,9 @@ class RecipeForm extends Component {
     this.setState((prevState) => ({
       recipe: {
         ...prevState.recipe,
-        ingredients_attributes: [
-          ...prevState.recipe.ingredients_attributes,
-          { ingredientName: "", ingredientAmount: "" },
+        recipe_ingredients_attributes: [
+          ...prevState.recipe.recipe_ingredients_attributes,
+          { amount: "", ingredient_attributes: { name: "" } },
         ],
       },
     }));
@@ -81,7 +95,7 @@ class RecipeForm extends Component {
             <b>Ingredients: </b>
           </label>
           <IngredientInputs
-            ingredients={this.state.recipe.ingredients_attributes}
+            ingredients={this.state.recipe.recipe_ingredients_attributes}
             recipes={this.props.recipes}
             handleChange={this.handleChange}
           />
