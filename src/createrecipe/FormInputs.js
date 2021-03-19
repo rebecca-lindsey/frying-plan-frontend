@@ -7,6 +7,7 @@ function CategoryInput(props) {
         list="category_list"
         onChange={props.handleChange}
         value={props.input}
+        required
       />
       <datalist id="category_list">
         {props.recipes.map((recipe, idx) => (
@@ -28,6 +29,7 @@ function CuisineInput(props) {
         list="cuisine_list"
         onChange={props.handleChange}
         value={props.input}
+        required
       />
       <datalist id="cuisine_list">
         {props.recipes.map((recipe, idx) => (
@@ -54,6 +56,7 @@ function IngredientInputs(props) {
         list="ingredient_list"
         className="name"
         onChange={props.handleChange}
+        required
       />
       {IngredientDatalist(props.recipes)}
       <label htmlFor={`ingredient-amount`}>Amount: </label>
@@ -65,6 +68,7 @@ function IngredientInputs(props) {
         value={ingredient.amount}
         className="amount"
         onChange={props.handleChange}
+        required
       />
     </p>
   ));

@@ -10,8 +10,7 @@
   text-align: center;
 }
 
-#recipe-list,
-#recipe-container {
+#recipe-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
