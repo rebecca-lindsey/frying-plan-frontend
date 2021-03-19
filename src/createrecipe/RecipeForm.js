@@ -49,6 +49,17 @@ class RecipeForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createRecipe(this.state);
+    this.setState({
+      recipe: {
+        name: "",
+        category: "",
+        cuisine: "",
+        recipe_ingredients_attributes: [
+          { amount: "", ingredient_attributes: { name: "" } },
+        ],
+        instructions: "",
+      },
+    });
   };
 
   addNewIngredientField = (e) => {
