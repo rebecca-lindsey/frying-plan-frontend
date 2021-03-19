@@ -36,7 +36,7 @@
 .small-recipe-card {
   background-color: #f6ba88;
   border: 1px dashed #262a2d;
-  height: 40px;
+  min-height: 40px;
   padding: 5px;
 }
 
