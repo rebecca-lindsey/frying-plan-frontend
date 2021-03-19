@@ -1,5 +1,4 @@
-export default function createRecipe(recipe) {
-  console.log("createRecipeAction", recipe);
+const createRecipe = (recipe) => {
   return (dispatch) => {
     const configObj = {
       method: "POST",
@@ -11,8 +10,10 @@ export default function createRecipe(recipe) {
     };
     fetch("http://127.0.0.1:3000/recipes", configObj)
       .then((res) => res.json())
-      .then((json) => {
-        dispatch({ type: "ADDED_RECIPE", payload: json });
+      .then((recipe) => {
+        dispatch({ type: "ADDED_RECIPE", recipe });
       });
   };
-}
+};
+
+export default createRecipe;

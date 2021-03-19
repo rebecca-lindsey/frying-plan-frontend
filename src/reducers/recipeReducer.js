@@ -5,21 +5,23 @@ export default function recipeReducer(
   },
   action
 ) {
+  console.log("RecipeReducer!");
   switch (action.type) {
     case "REQUEST_RECIPES":
       return {
         recipes: [...state.recipes],
         loading: true,
       };
-
     case "ADD_RECIPES":
       return {
         recipes: action.recipes,
         loading: false,
       };
     case "ADDED_RECIPE":
-      console.log("ADDED recipe!");
-      return state;
+      return {
+        ...state,
+        recipes: [...state.recipes, action.recipe],
+      };
     default:
       return state;
   }
