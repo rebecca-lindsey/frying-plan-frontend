@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import RecipeCard from "./RecipeCard";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
 class RecipeCatalogue extends Component {
@@ -11,7 +10,6 @@ class RecipeCatalogue extends Component {
         draggableId={`recipe-${recipe.id}`}
         index={index}
       >
-        {/* <RecipeCard recipe={recipe} /> */}
         {(provided) => (
           <li
             className="small-recipe-card"
@@ -29,7 +27,7 @@ class RecipeCatalogue extends Component {
   render() {
     return (
       <div id="recipe-list-area">
-        <Droppable droppableId="recipes">
+        <Droppable droppableId="recipes-drop-area">
           {(provided) => (
             <ul
               className="recipes"
@@ -37,6 +35,7 @@ class RecipeCatalogue extends Component {
               ref={provided.innerRef}
             >
               {this.makeRecipeCards()}
+              {provided.placeholder}
             </ul>
           )}
         </Droppable>{" "}

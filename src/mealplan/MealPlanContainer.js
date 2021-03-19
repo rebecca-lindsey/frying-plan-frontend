@@ -11,9 +11,13 @@ class MealPlanContainer extends Component {
     this.props.fetchDays();
   }
 
+  handleOnDragEnd = (result) => {
+    console.log(result);
+  };
+
   render() {
     return (
-      <DragDropContext>
+      <DragDropContext onDragEnd={this.handleOnDragEnd}>
         <div id="meal-plan-container" className="main-container">
           <div id="recipe-catalogue">
             <h2>Recipes</h2>

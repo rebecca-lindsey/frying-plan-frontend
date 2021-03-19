@@ -17,6 +17,10 @@
   align-items: center;
 }
 
+#no-recipe-placeholder {
+  height: 350px;
+}
+
 .day-card,
 #recipe-list-area {
   width: 150px;
@@ -36,7 +40,9 @@
 .meal-card,
 .small-recipe-card {
   background-color: #f6ba88;
-  border: 1px dashed #262a2d;
+  border-style: dashed none dashed none;
+  border-width: 1px;
+  border-color: #262a2d;
   min-height: 40px;
   padding: 5px;
 }
