@@ -22,7 +22,8 @@
   width: 150px;
   border: 1px solid #262a2d;
   background-color: #ffefbc;
-  min-height: 300px;
+  overflow-y: auto;
+  height: 450px;
   text-align: center;
 }
 
@@ -37,6 +38,11 @@
   border: 1px dashed #262a2d;
   height: 40px;
   padding: 5px;
+}
+
+#recipe-list-area {
+  overflow-y: auto;
+  height: 450px;
 }
 
 /* Light Gray: E1E7E7
