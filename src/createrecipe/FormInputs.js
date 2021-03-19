@@ -39,7 +39,6 @@ function CuisineInput(props) {
 }
 
 function IngredientInputs(props) {
-  console.log(props);
   return props.ingredients.map((ingredient, index) => (
     <p key={index}>
       <label htmlFor={`ingredient-name`}>Name: </label>
