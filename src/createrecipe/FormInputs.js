@@ -6,6 +6,7 @@ function CategoryInput(props) {
         name="category"
         list="category_list"
         onChange={props.handleChange}
+        value={props.input}
       />
       <datalist id="category_list">
         {props.recipes.map((recipe, idx) => (
@@ -26,6 +27,7 @@ function CuisineInput(props) {
         name="cuisine"
         list="cuisine_list"
         onChange={props.handleChange}
+        value={props.input}
       />
       <datalist id="cuisine_list">
         {props.recipes.map((recipe, idx) => (
@@ -41,13 +43,14 @@ function CuisineInput(props) {
 function IngredientInputs(props) {
   return props.ingredients.map((ingredient, index) => (
     <p key={index}>
+      {console.log(ingredient)}
       <label htmlFor={`ingredient-name`}>Name: </label>
       <input
         type="text"
         name={`ingredient-${index}-name`}
         data-id={index}
         id={`ingredient-${index}-name`}
-        value={ingredient.name}
+        value={ingredient.ingredient_attributes.name}
         list="ingredient_list"
         className="name"
         onChange={props.handleChange}

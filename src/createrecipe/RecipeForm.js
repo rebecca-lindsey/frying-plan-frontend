@@ -81,52 +81,68 @@ class RecipeForm extends Component {
           <label htmlFor="name">
             <b>Name: </b>
           </label>
-          <input type="text" onChange={this.handleChange} name="name" />
+          <br />
+          <input
+            type="text"
+            onChange={this.handleChange}
+            name="name"
+            value={this.state.recipe.name}
+          />
         </p>
         <p>
           <label htmlFor="category">
             <b>Category: </b>
           </label>
+          <br />
           <CategoryInput
             recipes={this.props.recipes}
             handleChange={this.handleChange}
+            input={this.state.recipe.category}
           />
         </p>
         <p>
           <label htmlFor="cuisine">
             <b>Cuisine: </b>
           </label>
+          <br />
           <CuisineInput
             recipes={this.props.recipes}
             handleChange={this.handleChange}
+            input={this.state.recipe.cuisine}
           />
         </p>
         <div>
           <label htmlFor="ingredients">
             <b>Ingredients: </b>
           </label>
-          <IngredientInputs
-            ingredients={this.state.recipe.recipe_ingredients_attributes}
-            recipes={this.props.recipes}
-            handleChange={this.handleChange}
-          />
-          <i
-            className="fas fa-plus-square"
-            onClick={this.addNewIngredientField}
-          ></i>
+          <div id="ingredient-inputs">
+            <IngredientInputs
+              ingredients={this.state.recipe.recipe_ingredients_attributes}
+              recipes={this.props.recipes}
+              handleChange={this.handleChange}
+            />
+          </div>
+
+          <p id="ingredient-controls">
+            <i
+              className="fas fa-plus-square"
+              onClick={this.addNewIngredientField}
+            ></i>
+          </p>
         </div>
         <p>
           <b>Instructions: </b>
           <br />
           <textarea
             rows="5"
-            cols="50"
+            cols="52"
             onChange={this.handleChange}
             name="instructions"
+            value={this.state.recipe.instructions}
           />
         </p>
-        <p>
-          <input type="submit" />
+        <p id="submit-button">
+          <input type="submit" value="Create New Recipe" />
         </p>
       </form>
     );
