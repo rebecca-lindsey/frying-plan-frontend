@@ -5,7 +5,6 @@ export default function recipeReducer(
   },
   action
 ) {
-  console.log("RecipeReducer!");
   switch (action.type) {
     case "REQUEST_RECIPES":
       return {

@@ -3,9 +3,16 @@
 }
 
 i {
-  color: #6ac33e;
   font-size: 1.5em;
-  align-self: center;
+  padding: 0 5px 0 5px;
+}
+
+.fa-plus-square {
+  color: #6ac33e;
+}
+
+.fa-minus-square {
+  color: #c33e3f;
 }
 
 i:hover {
