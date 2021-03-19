@@ -1,16 +1,23 @@
 .recipe-card {
-    background-color: #FFEFBC;
-    border: 4px double #262A2D;
-    padding: 5px;
-    width: 350px;
+  background-color: #ffefbc;
+  border: 4px double #262a2d;
+  padding: 5px;
+  width: 350px;
+  margin: 5px 0 5px 0;
 }
 
 .recipe-card h3 {
-    text-align: center;
+  text-align: center;
 }
 
-#recipe-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+#recipe-list,
+#recipe-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#recipe-container {
+  justify-content: space-evenly;
 }
