@@ -39,6 +39,7 @@ function CuisineInput(props) {
 }
 
 function IngredientInputs(props) {
+  console.log(props);
   return props.ingredients.map((ingredient, index) => (
     <p key={index}>
       <label htmlFor={`ingredient-name`}>Name: </label>
@@ -49,7 +50,7 @@ function IngredientInputs(props) {
         id={`ingredient-${index}-name`}
         value={ingredient.name}
         list="ingredient_list"
-        className="ingredientName"
+        className="name"
         onChange={props.handleChange}
       />
       {IngredientDatalist(props.recipes)}
@@ -60,7 +61,7 @@ function IngredientInputs(props) {
         data-id={index}
         id={`ingredient-${index}-amount`}
         value={ingredient.amount}
-        className="ingredientAmount"
+        className="amount"
         onChange={props.handleChange}
       />
     </p>
