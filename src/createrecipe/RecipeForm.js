@@ -48,7 +48,6 @@ class RecipeForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("State before:", this.state);
     this.props.createRecipe(this.state);
     this.setState({
       recipe: {
@@ -61,7 +60,6 @@ class RecipeForm extends Component {
         instructions: "",
       },
     });
-    console.log("State after: ", this.state);
   };
 
   addNewIngredientField = (e) => {
