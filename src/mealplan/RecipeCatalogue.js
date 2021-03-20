@@ -14,6 +14,7 @@ class RecipeCatalogue extends Component {
         key={recipe.id}
         handleClick={this.handleClick}
         idToAdd={this.state.idToAdd}
+        days={this.props.days}
       />
     ));
   }
