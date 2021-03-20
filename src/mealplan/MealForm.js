@@ -63,7 +63,7 @@ class MealForm extends Component {
 
   render() {
     return (
-      <form class="create-meal-form" onSubmit={this.handleSubmit}>
+      <form className="create-meal-form" onSubmit={this.handleSubmit}>
         <p>
           <label htmlFor="day">Day: </label>
           <select
