@@ -3,23 +3,24 @@ import { connect } from "react-redux";
 import RecipeCard from "./RecipeCard";
 
 class RecipeCatalogue extends Component {
+  state = {
+    idToAdd: 0,
+  };
+
   makeRecipeCards() {
     return this.props.recipes.map((recipe) => (
       <RecipeCard
         recipe={recipe}
         key={recipe.id}
         handleClick={this.handleClick}
+        idToAdd={this.state.idToAdd}
       />
     ));
   }
 
   handleClick = (e) => {
     if ([...e.target.classList].includes("add-to-meal-plan")) {
-      console.log(e.target.parentNode.id);
-      const parent = e.target.parentNode;
-      const btnToRemove = document.getElementById(e.target.id);
-      const newContent = this.createMealForm();
-      parent.replaceChild(newContent, btnToRemove);
+      this.setState({ idToAdd: parseInt(e.target.parentNode.id) });
     }
   };
 

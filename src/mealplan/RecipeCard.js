@@ -1,3 +1,5 @@
+import MealForm from "./MealForm";
+
 export default function RecipeCard(props) {
   return (
     <div
@@ -10,6 +12,9 @@ export default function RecipeCard(props) {
         id={`${props.recipe.id}-add-button`}
         className="fas fa-calendar-plus add-to-meal-plan"
       ></i>
+      {props.idToAdd === props.recipe.id && (
+        <MealForm recipeId={props.recipe.id} />
+      )}
     </div>
   );
 }

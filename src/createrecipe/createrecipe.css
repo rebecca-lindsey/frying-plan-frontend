@@ -43,14 +43,16 @@ input[name="name"],
 
 input[type="submit"] {
   padding: 5px;
-  background-color: #f6ba88;
+  /* background-color: #f6ba88; */
+  background-color: #ffe799;
   border: none;
   box-shadow: 5px 5px 5px #1a191a;
 }
 
 input[type="submit"]:hover {
   cursor: pointer;
-  background-color: #fad3b3;
+  /* background-color: #fad3b3; */
+  background-color: #fff1c2;
 }
 
 input[type="submit"]:focus {
