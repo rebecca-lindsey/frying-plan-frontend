@@ -30,6 +30,23 @@ export default function dayReducer(
           ...state.days.slice(action.meal.day.id),
         ],
       };
+
+    case "REMOVED_MEAL":
+      return {
+        ...state,
+        days: [
+          ...state.days.slice(0, action.dayId - 1),
+          {
+            ...state.days[action.dayId - 1],
+            meals: [
+              ...state.days[action.dayId - 1].meals.filter(
+                (meal) => meal.id !== action.mealId
+              ),
+            ],
+          },
+          ...state.days.slice(action.dayId),
+        ],
+      };
     default:
       return state;
   }
