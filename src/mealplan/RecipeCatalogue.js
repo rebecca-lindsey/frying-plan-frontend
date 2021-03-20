@@ -22,6 +22,8 @@ class RecipeCatalogue extends Component {
   handleClick = (e) => {
     if ([...e.target.classList].includes("add-to-meal-plan")) {
       this.setState({ idToAdd: parseInt(e.target.parentNode.id) });
+    } else if ([...e.target.classList].includes("remove-recipe-form")) {
+      this.setState({ idToAdd: 0 });
     }
   };
 
