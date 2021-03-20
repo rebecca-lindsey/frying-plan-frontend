@@ -1,7 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import CapitalizeFirstLetter from "../helpers/CapitalizeFirstLetter";
 
 class MealForm extends Component {
+  state = {
+    meal_name: "",
+    day_name: "",
+  };
+
+  handleChange = (e) => {
+    let value = e.target.value;
+
+    if (e.target.name === "meal_name") {
+      value = CapitalizeFirstLetter(value);
+    }
+
+    this.setState({
+      ...this.state,
+      [e.target.name]: value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.createRecipe(this.state);
+    this.setState({
+      recipe: {
+        name: "",
+        category: "",
+        cuisine: "",
+        recipe_ingredients_attributes: [
+          { amount: "", ingredient_attributes: { name: "" } },
+        ],
+        instructions: "",
+      },
+    });
+    alert("Your recipe has been saved!");
+  };
+
   createOptions() {
     return this.props.days.map((day) => (
       <option value={day.name}>{day.name}</option>
@@ -32,11 +68,11 @@ class MealForm extends Component {
       <form className="meal-form">
         <p>
           <label htmlFor="day">Day: </label>
-          <select name="day">{this.createOptions()}</select>
+          <select name="day_name">{this.createOptions()}</select>
         </p>
         <p>
           <label htmlFor="meal">Meal: </label>
-          <input type="text" list="meal_list" />
+          <input type="text" list="meal_list" name="meal_name" />
           {this.mealDataset(this.props.days)}
         </p>
         <p>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CategoryInput, CuisineInput, IngredientInputs } from "./FormInputs";
 import createRecipe from "../actions/createRecipe";
+import CapitalizeFirstLetter from "../helpers/CapitalizeFirstLetter";
 
 class RecipeForm extends Component {
   state = {
@@ -17,13 +18,9 @@ class RecipeForm extends Component {
   };
 
   handleChange = (e) => {
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
     if ("amount" === e.target.className) {
       let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
-      ingredients[e.target.dataset.id].amount = capitalizeFirstLetter(
+      ingredients[e.target.dataset.id].amount = CapitalizeFirstLetter(
         e.target.value
       );
       this.setState({
@@ -37,7 +34,7 @@ class RecipeForm extends Component {
       let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
       ingredients[
         e.target.dataset.id
-      ].ingredient_attributes.name = capitalizeFirstLetter(e.target.value);
+      ].ingredient_attributes.name = CapitalizeFirstLetter(e.target.value);
       this.setState({
         ...this.state,
         recipe: {
@@ -50,7 +47,7 @@ class RecipeForm extends Component {
         ...this.state,
         recipe: {
           ...this.state.recipe,
-          [e.target.name]: capitalizeFirstLetter(e.target.value),
+          [e.target.name]: CapitalizeFirstLetter(e.target.value),
         },
       });
     }
