@@ -1,46 +1,45 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CapitalizeFirstLetter from "../helpers/CapitalizeFirstLetter";
+import createMeal from "../actions/createMeal";
 
 class MealForm extends Component {
   state = {
-    meal_name: "",
-    day_name: "",
+    meal: {
+      name: "",
+      day_id: 1,
+      recipe_id: this.props.recipeId,
+    },
   };
 
   handleChange = (e) => {
     let value = e.target.value;
 
-    if (e.target.name === "meal_name") {
+    if (e.target.name === "name") {
       value = CapitalizeFirstLetter(value);
+    } else if (e.target.name === "day_id") {
+      value = parseInt(value);
     }
 
     this.setState({
       ...this.state,
-      [e.target.name]: value,
+      meal: {
+        ...this.state.meal,
+        [e.target.name]: value,
+      },
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createRecipe(this.state);
-    this.setState({
-      recipe: {
-        name: "",
-        category: "",
-        cuisine: "",
-        recipe_ingredients_attributes: [
-          { amount: "", ingredient_attributes: { name: "" } },
-        ],
-        instructions: "",
-      },
-    });
-    alert("Your recipe has been saved!");
+    this.props.createMeal(this.state);
   };
 
   createOptions() {
     return this.props.days.map((day) => (
-      <option value={day.name}>{day.name}</option>
+      <option value={day.id} key={day.id}>
+        {day.name}
+      </option>
     ));
   }
 
@@ -48,7 +47,6 @@ class MealForm extends Component {
     const mealSet = new Set();
     days.forEach((day) => {
       day.meals.forEach((meal) => {
-        console.log(meal);
         mealSet.add(meal.name);
       });
     });
@@ -65,14 +63,26 @@ class MealForm extends Component {
 
   render() {
     return (
-      <form className="meal-form">
+      <form class="create-meal-form" onSubmit={this.handleSubmit}>
         <p>
           <label htmlFor="day">Day: </label>
-          <select name="day_name">{this.createOptions()}</select>
+          <select
+            name="day_id"
+            onChange={this.handleChange}
+            value={this.state.meal.day_id}
+          >
+            {this.createOptions()}
+          </select>
         </p>
         <p>
           <label htmlFor="meal">Meal: </label>
-          <input type="text" list="meal_list" name="meal_name" />
+          <input
+            type="text"
+            list="meal_list"
+            name="name"
+            onChange={this.handleChange}
+            value={this.state.meal.name}
+          />
           {this.mealDataset(this.props.days)}
         </p>
         <p>
@@ -89,4 +99,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MealForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createMeal: (recipe) => dispatch(createMeal(recipe)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MealForm);

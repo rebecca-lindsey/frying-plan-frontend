@@ -35,7 +35,8 @@
 .meal-card,
 .small-recipe-card {
   background-color: #f6ba88;
-  border: 1px dashed #262a2d;
+  border: 1px #262a2d;
+  border-style: dashed none dashed none;
   min-height: 40px;
   padding: 5px;
 }
@@ -53,7 +54,7 @@
   height: 450px;
 }
 
-.meal-form input {
+.create-meal-form input {
   width: 125px;
 }
 

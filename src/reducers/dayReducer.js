@@ -17,6 +17,19 @@ export default function dayReducer(
         days: action.days,
         loading: false,
       };
+
+    case "ADDED_MEAL":
+      return {
+        ...state,
+        days: [
+          ...state.days.slice(0, action.meal.day.id - 1),
+          {
+            ...state.days[action.meal.day.id - 1],
+            meals: [...state.days[action.meal.day.id - 1].meals, action.meal],
+          },
+          ...state.days.slice(action.meal.day.id),
+        ],
+      };
     default:
       return state;
   }

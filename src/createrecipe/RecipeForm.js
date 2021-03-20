@@ -106,7 +106,7 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} id="create-recipe-form">
         <p>
           <label htmlFor="name">
             <b>Name: </b>
