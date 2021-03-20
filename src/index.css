@@ -26,7 +26,7 @@ h2 {
 }
 
 .main-container {
-  padding-top: 20px;
+  padding: 20px 0 20px 0;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

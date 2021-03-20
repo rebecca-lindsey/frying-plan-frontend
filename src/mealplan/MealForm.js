@@ -45,6 +45,7 @@ class MealForm extends Component {
             name="day_id"
             onChange={this.handleChange}
             value={this.state.meal.day_id}
+            required
           >
             {CreateOptions(this.props.days)}
           </select>
@@ -57,6 +58,7 @@ class MealForm extends Component {
             name="name"
             onChange={this.handleChange}
             value={this.state.meal.name}
+            required
           />
           {MealDataset(this.props.days)}
         </p>
