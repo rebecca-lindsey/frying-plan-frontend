@@ -2,23 +2,6 @@
   margin-right: 10px;
 }
 
-i {
-  font-size: 1.5em;
-  padding: 0 5px 0 5px;
-}
-
-.fa-plus-square {
-  color: #6ac33e;
-}
-
-.fa-minus-square {
-  color: #c33e3f;
-}
-
-i:hover {
-  cursor: pointer;
-}
-
 .p-flex {
   display: flex;
   flex-direction: row;
@@ -39,34 +22,4 @@ i:hover {
 
 #ingredient-inputs p {
   padding-top: 5px;
-}
-
-input[type="submit"] {
-  padding: 5px;
-  background-color: #ffe799;
-  border: none;
-  box-shadow: 5px 5px 5px #1a191a;
-}
-
-input[type="submit"]:hover {
-  cursor: pointer;
-  background-color: #fff1c2;
-}
-
-input[type="submit"]:focus {
-  outline: 1px solid #1a191a;
-}
-
-form input,
-form textarea,
-form select {
-  font-family: "Quicksand", sans-serif;
-  font-size: 1em;
-}
-form p {
-  padding-top: 5px;
-}
-
-form {
-  padding-bottom: 20px;
 }
