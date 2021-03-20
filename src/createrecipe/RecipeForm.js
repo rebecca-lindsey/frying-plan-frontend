@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CategoryInput, CuisineInput, IngredientInputs } from "./FormInputs";
+import { CategoryInput, CuisineInput, IngredientInputs } from "./RecipeInputs";
 import createRecipe from "../actions/createRecipe";
 import CapitalizeFirstLetter from "../helpers/CapitalizeFirstLetter";
 
