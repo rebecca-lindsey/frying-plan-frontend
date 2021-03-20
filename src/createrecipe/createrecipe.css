@@ -25,9 +25,9 @@ i:hover {
   justify-content: space-between;
 }
 
-input[name="name"],
-[name="category"],
-[name="cuisine"] {
+#create-recipe-form input[name="name"],
+#create-recipe-form [name="category"],
+#create-recipe-form [name="cuisine"] {
   width: 200px;
 }
 
