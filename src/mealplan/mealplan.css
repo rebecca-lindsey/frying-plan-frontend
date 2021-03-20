@@ -40,6 +40,14 @@
   padding: 5px;
 }
 
+.add-to-meal-plan {
+  color: #62a786;
+}
+
+.small-recipe-card:hover {
+  cursor: pointer;
+}
+
 #recipe-list-area {
   overflow-y: auto;
   height: 450px;
