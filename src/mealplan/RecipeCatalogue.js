@@ -7,7 +7,7 @@ class RecipeCatalogue extends Component {
     return this.props.recipes.map((recipe, index) => (
       <Draggable
         key={recipe.id}
-        draggableId={`recipe-${recipe.id}`}
+        draggableId={`${recipe.id}-recipe`}
         index={index}
       >
         {(provided) => (

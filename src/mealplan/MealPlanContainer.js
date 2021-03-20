@@ -12,12 +12,32 @@ class MealPlanContainer extends Component {
   }
 
   handleOnDragEnd = (result) => {
-    console.log(result);
+    if (result.destination) {
+      const num = parseInt(result.destination.droppableId);
+      if (num) {
+        console.log("Day of the week!", num);
+      } else {
+        console.log("No good!");
+      }
+    }
+  };
+
+  handleOnDragUpdate = (update) => {
+    console.log("On Drag Update");
+    if (update.destination) {
+      if (parseInt(update.destination.droppableId)) console.log("DROP HERE!");
+      const recipeIndex = parseInt(update.draggableId) - 1;
+      debugger;
+    }
+    console.log(update);
   };
 
   render() {
     return (
-      <DragDropContext onDragEnd={this.handleOnDragEnd}>
+      <DragDropContext
+        onDragEnd={this.handleOnDragEnd}
+        onDragUpdate={this.handleOnDragUpdate}
+      >
         <div id="meal-plan-container" className="main-container">
           <div id="recipe-catalogue">
             <h2>Recipes</h2>

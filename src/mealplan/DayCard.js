@@ -7,7 +7,7 @@ function displayMeals(meals) {
     );
   } else {
     return meals.map((meal, index) => (
-      <Draggable key={meal.id} draggableId={`meal-${meal.id}`} index={index}>
+      <Draggable key={meal.id} draggableId={`${meal.id}-meal`} index={index}>
         {(provided) => (
           <li
             ref={provided.innerRef}
@@ -30,7 +30,7 @@ export default function DayCard(props) {
   return (
     <div className="day-card" id={`recipe-${props.day.id}`}>
       <h3>{props.day.name}</h3>
-      <Droppable droppableId={`day-${props.day.id}-drop-area`}>
+      <Droppable droppableId={`${props.day.id}-day-drop-area`}>
         {(provided) => (
           <ul {...provided.droppableProps} ref={provided.innerRef}>
             {displayMeals(props.day.meals)}
