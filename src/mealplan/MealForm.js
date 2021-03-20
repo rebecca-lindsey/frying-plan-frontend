@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import CapitalizeFirstLetter from "../helpers/CapitalizeFirstLetter";
 import createMeal from "../actions/createMeal";
+import { CreateOptions, MealDataset } from "./MealInputs";
 
 class MealForm extends Component {
   state = {
@@ -35,32 +36,6 @@ class MealForm extends Component {
     this.props.createMeal(this.state);
   };
 
-  createOptions() {
-    return this.props.days.map((day) => (
-      <option value={day.id} key={day.id}>
-        {day.name}
-      </option>
-    ));
-  }
-
-  mealDataset(days) {
-    const mealSet = new Set();
-    days.forEach((day) => {
-      day.meals.forEach((meal) => {
-        mealSet.add(meal.name);
-      });
-    });
-    return (
-      <datalist id="meal_list">
-        {[...mealSet].sort().map((meal, idx) => (
-          <option value={meal} key={idx}>
-            {meal}
-          </option>
-        ))}
-      </datalist>
-    );
-  }
-
   render() {
     return (
       <form className="create-meal-form" onSubmit={this.handleSubmit}>
@@ -71,7 +46,7 @@ class MealForm extends Component {
             onChange={this.handleChange}
             value={this.state.meal.day_id}
           >
-            {this.createOptions()}
+            {CreateOptions(this.props.days)}
           </select>
         </p>
         <p>
@@ -83,7 +58,7 @@ class MealForm extends Component {
             onChange={this.handleChange}
             value={this.state.meal.name}
           />
-          {this.mealDataset(this.props.days)}
+          {MealDataset(this.props.days)}
         </p>
         <p>
           <input type="submit" />
