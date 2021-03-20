@@ -18,8 +18,8 @@ class RecipeForm extends Component {
   };
 
   handleChange = (e) => {
+    let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
     if ("amount" === e.target.className) {
-      let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
       ingredients[e.target.dataset.id].amount = CapitalizeFirstLetter(
         e.target.value
       );
@@ -31,7 +31,6 @@ class RecipeForm extends Component {
         },
       });
     } else if ("name" === e.target.className) {
-      let ingredients = [...this.state.recipe.recipe_ingredients_attributes];
       ingredients[
         e.target.dataset.id
       ].ingredient_attributes.name = CapitalizeFirstLetter(e.target.value);
