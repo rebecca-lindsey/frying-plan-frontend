@@ -57,9 +57,7 @@ function IngredientInputs(props) {
         onChange={props.handleChange}
         required
       />
-      <datalist id="ingredient_list">
-        {IngredientDatalist(props.recipes)}
-      </datalist>
+      {IngredientDatalist(props.recipes)}
 
       <label htmlFor={`ingredient-amount`}>Amount: </label>
       <input
