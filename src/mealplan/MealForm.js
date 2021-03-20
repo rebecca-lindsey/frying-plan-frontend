@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 export default class MealForm extends Component {
-    createMealForm() {
+  render() {
     return (
-      <form>
+      <form className="meal-form">
         <p>
           <label htmlFor="day">Day: </label>
           <input type="text" />
@@ -14,7 +13,7 @@ export default class MealForm extends Component {
           <input type="text" />
         </p>
         <p>
-          <input type="submit"
+          <input type="submit" />
         </p>
       </form>
     );
