@@ -8,12 +8,20 @@ export default function RecipeCard(props) {
       onClick={props.handleClick}
     >
       <h3>{props.recipe.name}</h3>
-      <i
-        id={`${props.recipe.id}-add-button`}
-        className="fas fa-calendar-plus add-to-meal-plan"
-      ></i>
-      {props.idToAdd === props.recipe.id && (
-        <MealForm recipeId={props.recipe.id} />
+
+      {props.idToAdd === props.recipe.id ? (
+        <div className="recipe-form-area">
+          <MealForm recipeId={props.recipe.id} />
+          <i
+            className="fas fa-minus-square remove-recipe-form"
+            onClick={props.handleClick}
+          ></i>
+        </div>
+      ) : (
+        <i
+          id={`${props.recipe.id}-add-button`}
+          className="fas fa-calendar-plus add-to-meal-plan"
+        ></i>
       )}
     </div>
   );
