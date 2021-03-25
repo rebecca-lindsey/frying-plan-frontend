@@ -19,3 +19,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(RecipeContainer);
+
+// Git struggles
