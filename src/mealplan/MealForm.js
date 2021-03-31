@@ -40,7 +40,7 @@ class MealForm extends Component {
     return (
       <form className="create-meal-form" onSubmit={this.handleSubmit}>
         <p>
-          <label htmlFor="day">Day: </label>
+          <label htmlFor="day_id">Day: </label>
           <select
             name="day_id"
             onChange={this.handleChange}
@@ -51,7 +51,7 @@ class MealForm extends Component {
           </select>
         </p>
         <p>
-          <label htmlFor="meal">Meal: </label>
+          <label htmlFor="name">Meal: </label>
           <input
             type="text"
             list="meal_list"

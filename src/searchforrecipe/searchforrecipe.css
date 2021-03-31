@@ -1,0 +1,7 @@
+#search-for-recipe-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  justify-content: space-evenly;
+}
