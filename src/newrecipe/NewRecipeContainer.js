@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CreateRecipeContainer from "../createrecipe/CreateRecipeContainer";
+import SearchForRecipeContainer from "../searchforrecipe/SearchForRecipeContainer";
 import "./newrecipe.css";
 
 export default class NewRecipeContainer extends Component {
@@ -47,7 +48,7 @@ export default class NewRecipeContainer extends Component {
         {this.state.display === "create-recipe" ? (
           <CreateRecipeContainer />
         ) : (
-          <div>Test</div>
+          <SearchForRecipeContainer />
         )}
       </div>
     );
