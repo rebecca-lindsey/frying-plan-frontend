@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import "./searchforrecipe.css";
 import SearchForRecipeForm from "./SearchForRecipeForm";
-import { connect } from "react-redux";
-import fetchWebRecipes from "../actions/fetchWebRecipes";
 
-class SearchForRecipeContainer extends Component {
+export default class SearchForRecipeContainer extends Component {
   state = {
     searchTerm: "",
+    webRecipes: [],
   };
 
   handleChange = (e) => {
@@ -17,9 +16,19 @@ class SearchForRecipeContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-    this.props.fetchWebRecipes(this.state.searchTerm);
+    this.fetchWebRecipes(this.state.searchTerm);
   };
+
+  fetchWebRecipes(searchTerm) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
+      .then((response) => response.json())
+      .then((recipes) => {
+        this.setState({
+          ...this.state,
+          webRecipes: recipes.meals,
+        });
+      });
+  }
 
   render() {
     return (
@@ -30,15 +39,8 @@ class SearchForRecipeContainer extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
+        {this.state.webRecipes.length}
       </div>
     );
   }
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchWebRecipes: (searchTerm) => dispatch(fetchWebRecipes(searchTerm)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(SearchForRecipeContainer);
