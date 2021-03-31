@@ -1,16 +1,6 @@
 import React, { Component } from "react";
 
 export default class SearchForRecipeForm extends Component {
-  state = {
-    searchTerm: "",
-  };
-
-  handleChange = (e) => {
-    this.setState({
-      searchTerm: e.target.value,
-    });
-  };
-
   render() {
     return (
       <form id="search-for-recipe-form">
@@ -19,8 +9,8 @@ export default class SearchForRecipeForm extends Component {
           <input
             type="text"
             name="searchTerm"
-            value={this.state.searchTerm}
-            onChange={this.handleChange}
+            value={this.props.searchTerm}
+            onChange={this.props.handleChange}
           />
         </p>
         <input type="submit" />
