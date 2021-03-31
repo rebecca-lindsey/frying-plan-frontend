@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./searchforrecipe.css";
 import SearchForRecipeForm from "./SearchForRecipeForm";
+import WebRecipeList from "./WebRecipeList";
 
 export default class SearchForRecipeContainer extends Component {
   state = {
@@ -39,7 +40,11 @@ export default class SearchForRecipeContainer extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        {this.state.webRecipes.length}
+        {this.state.webRecipes === null ? (
+          <h3>No results</h3>
+        ) : (
+          <WebRecipeList webRecipes={this.state.webRecipes} />
+        )}
       </div>
     );
   }
