@@ -11,7 +11,11 @@ export default class SearchForRecipeContainer extends Component {
     this.setState({
       searchTerm: e.target.value,
     });
-    console.log(this.state);
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
   };
 
   render() {
@@ -21,6 +25,7 @@ export default class SearchForRecipeContainer extends Component {
         <SearchForRecipeForm
           searchTerm={this.state.searchTerm}
           handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
         />
       </div>
     );

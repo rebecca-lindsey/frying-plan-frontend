@@ -1,6 +1,6 @@
 export default function SearchForRecipeForm(props) {
   return (
-    <form id="search-for-recipe-form">
+    <form id="search-for-recipe-form" onSubmit={props.handleSubmit}>
       <p>
         <label htmlFor="searchTerm">Name of Meal: </label>
         <input
