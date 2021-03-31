@@ -7,7 +7,7 @@ class CreateRecipeContainer extends Component {
   render() {
     return (
       <div id="create-recipe-container" className="main-container">
-        <h2>Create Recipe</h2>
+        <h3>Create a New Recipe</h3>
         {this.props.loading ? <h3>Loading...</h3> : <RecipeForm />}
       </div>
     );

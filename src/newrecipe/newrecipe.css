@@ -1,0 +1,12 @@
+#new-recipe-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  border: 1px solid #262a2d;
+  padding: 5px;
+}
+
+#new-recipe-form label {
+  padding-left: 5px;
+}
