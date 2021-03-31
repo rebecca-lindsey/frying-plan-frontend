@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./searchforrecipe.css";
 import SearchForRecipeForm from "./SearchForRecipeForm";
+import { connect } from "react-redux";
+import fetchWebRecipes from "../actions/fetchWebRecipes";
 
-export default class SearchForRecipeContainer extends Component {
+class SearchForRecipeContainer extends Component {
   state = {
     searchTerm: "",
   };
@@ -16,6 +18,7 @@ export default class SearchForRecipeContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(e);
+    this.props.fetchWebRecipes(this.state.searchTerm);
   };
 
   render() {
@@ -31,3 +34,11 @@ export default class SearchForRecipeContainer extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchWebRecipes: (searchTerm) => dispatch(fetchWebRecipes(searchTerm)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SearchForRecipeContainer);
