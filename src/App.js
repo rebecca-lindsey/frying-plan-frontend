@@ -6,7 +6,7 @@ import HeaderContainer from "./header/HeaderContainer";
 import HomeContainer from "./home/HomeContainer";
 import MealPlanContainer from "./mealplan/MealPlanContainer";
 import RecipeContainer from "./recipes/RecipeContainer";
-import CreateRecipeContainer from "./createrecipe/CreateRecipeContainer";
+import NewRecipeContainer from "./newrecipe/NewRecipeContainer";
 
 class App extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class App extends Component {
               <MealPlanContainer />
             </Route>
             <Route path="/recipes/new">
-              <CreateRecipeContainer />
+              <NewRecipeContainer />
             </Route>
             <Route path="/recipes">
               <RecipeContainer />
