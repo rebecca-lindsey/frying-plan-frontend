@@ -1,3 +1,5 @@
+import CapitalizeFirstLetter from "../helpers/CapitalizeFirstLetter";
+
 export default function WebRecipeList(props) {
   return (
     <div id="recipe-list">
@@ -35,5 +37,24 @@ function makeWebRecipeCard(recipe) {
 
 function displayWebIngredients(recipe) {
   console.log(recipe);
-  return <b>Ingredients here!</b>;
+  let i = 1;
+  let ingredientObj = {};
+  while (recipe[`strIngredient${i}`]) {
+    ingredientObj[CapitalizeFirstLetter(recipe[`strIngredient${i}`])] =
+      recipe[`strMeasure${i}`];
+    i++;
+  }
+  return processWebIngredients(ingredientObj);
 }
+
+function processWebIngredients(ingredientObj) {
+  return Object.keys(ingredientObj).map((ing) => (
+    <li key={`web-ingredient-${ing}`}>
+      {ing} - {ingredientObj[ing]}
+    </li>
+  ));
+}
+
+// <li key={`recipe_ingredient-${ingredient.id}`}>
+//   {ingredient.ingredient.name} - {ingredient.amount}
+// </li>;
