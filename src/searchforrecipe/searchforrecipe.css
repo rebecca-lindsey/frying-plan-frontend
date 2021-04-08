@@ -5,3 +5,11 @@
   height: 100px;
   justify-content: space-evenly;
 }
+
+.fa-save {
+  color: #6ac33e;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+}

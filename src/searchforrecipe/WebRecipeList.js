@@ -31,6 +31,7 @@ function makeWebRecipeCard(recipe) {
           {recipe.strInstructions}
         </li>
       </ul>
+      <i className="fas fa-save"></i>
     </div>
   );
 }
