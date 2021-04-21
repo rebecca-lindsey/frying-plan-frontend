@@ -27,7 +27,14 @@ Frying Plan React/Redux application, using Rails as an API, that allows users to
     ```
     rails db:seed
     ```
+    
+- Prepare the frontend by navigating into the frontend folder and completing the following step:
+  - Install the necessary packages
 
+    ```
+    npm install
+    ```
+    
 ## Usage
 
 ### Starting the program
